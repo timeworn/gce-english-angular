@@ -1,0 +1,17 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle class="ion-margin-bottom" color="primary">QUESTION {{ index }}</ion-card-subtitle>
+    <ion-badge color="primary">{{ question.category.name }}</ion-badge>
+    <ion-fab vertical="top" horizontal="end" *appIfRole="[Role.Teacher]">
+      <ion-fab-button color="primary" size="small"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button color="secondary" size="small" [routerLink]="'/question/' + question.id"><ion-icon name="create-outline"></ion-icon></ion-fab-button>
+        <ion-fab-button color="danger" size="small" (click)="deleteConfirm()"><ion-icon name="trash-outline"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-text color="primary">{{ question.question }}</ion-text>
+    <app-answer-picker [options]="question.options" [questionId]="question.id" [answer]="question.answer"></app-answer-picker>
+  </ion-card-content>
+</ion-card>

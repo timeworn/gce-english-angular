@@ -1,0 +1,12 @@
+<app-header backUrl="/categories"></app-header>
+
+<ion-content>
+  <ion-text class="ion-text-center" *ngIf="!questions?.length && !isLoading">
+    <h3>No questions on this category...</h3>
+  </ion-text>
+
+  <app-question-card *ngFor="let item of questions; let i = index" [question]="item" [index]="i + 1" (delete)="removeItemFromList(i)"></app-question-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more questions..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

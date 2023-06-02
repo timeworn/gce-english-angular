@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item detail *ngFor="let item of categories; let last = last" [lines]="last ? 'none' : 'full'" [routerLink]="'/category/' + item.id">
+      <ion-label color="primary">{{ item.name }}</ion-label>
+      <ion-badge color="primary">{{ item.count }}</ion-badge>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-padding" *appIfRole="[Role.Teacher]">
+  <ion-button expand="block" routerLink="/create-question">Create New Question</ion-button>
+</ion-footer>

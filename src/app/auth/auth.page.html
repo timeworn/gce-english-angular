@@ -1,0 +1,20 @@
+<ion-content>
+
+  <ion-text class="ion-text-center">
+    <ion-img src="assets/brand.png" alt="Logo"></ion-img>
+  </ion-text>
+
+  <form class="ion-padding" [formGroup]="form" (ngSubmit)="login()">
+    <ion-item class="ion-padding-end ion-margin-bottom">
+      <ion-label position="stacked" color="primary">Username</ion-label>
+      <ion-input color="primary" formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-padding-end ion-margin-bottom">
+      <ion-label color="primary" position="stacked">Password</ion-label>
+      <ion-input type="password" color="primary" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" [disabled]="form.invalid">Login</ion-button>
+  </form>
+</ion-content>

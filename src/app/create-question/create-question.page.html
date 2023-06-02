@@ -1,0 +1,32 @@
+<app-header backUrl="/categories"></app-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-card>
+      <ion-item class="ion-margin-end">
+        <ion-label color="primary" position="floating">Question</ion-label>
+        <ion-textarea color="primary" auto-grow="true" formControlName="question"></ion-textarea>
+      </ion-item>
+      <ion-item class="ion-margin-end ion-margin-bottom">
+        <ion-label color="primary" position="floating">Answer</ion-label>
+        <ion-input color="primary" formControlName="answer"></ion-input>
+      </ion-item>
+
+      <app-options-builder [formControl]="form.controls['options']"></app-options-builder>
+
+      <ion-item lines="none">
+        <ion-label color="primary">Category</ion-label>
+        <ion-spinner *ngIf="isCategoryLoading; else select"></ion-spinner>
+        <ng-template #select>
+          <ion-select placeholder="Select One" formControlName="categoryId">
+            <ion-select-option [value]="item.id" *ngFor="let item of categories">{{ item.name }}</ion-select-option>
+          </ion-select>
+        </ng-template>
+      </ion-item>
+    </ion-card>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button expand="block" color="primary" (click)="save()" [disabled]="form.invalid">Save Question</ion-button>
+</ion-footer>

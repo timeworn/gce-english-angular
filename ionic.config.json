@@ -1,0 +1,8 @@
+{
+  "name": "gce-english",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "1c3c2cb3"
+}

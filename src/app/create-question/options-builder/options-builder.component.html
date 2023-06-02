@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+  <ng-container formArrayName="options">
+    <ion-item class="ion-margin-end" *ngFor="let option of options.controls; let i = index">
+      <ion-label color="primary" position="floating">Option {{ i + 1 }}</ion-label>
+      <ion-input color="primary" [formControlName]="i"></ion-input>
+
+      <ion-icon color="primary" slot="end" name="close" *ngIf="i > (min - 1)" (click)="removeOption(i)"></ion-icon>
+    </ion-item>
+  </ng-container>
+  <div class="ion-padding">
+    <ion-button expand="block" (click)="addOption()"><ion-icon name="add"></ion-icon>Add Option</ion-button>
+  </div>
+</form>

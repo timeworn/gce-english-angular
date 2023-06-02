@@ -1,0 +1,9 @@
+<ion-grid>
+  <ion-row *ngFor="let group of groups">
+    <ion-col *ngFor="let item of group">
+      <ion-button [color]="selectedOption === item ? (correct ? 'primary' : 'danger') : 'light'" expand="block" *ngIf="item" (click)="selectAnswer(item)">
+        {{ item }}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
